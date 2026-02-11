@@ -1,6 +1,6 @@
 <template>
   <nav
-    v-if="!esLogin"
+    v-if="!hideNav"
     class="navbar navbar-expand-lg navbar-dark bg-dark"
   >
     <a class="navbar-brand" href="#">
@@ -27,7 +27,7 @@ const router = useRouter();
 const route = useRoute();
 
 // Computed que se actualiza automáticamente al cambiar de ruta
-const esLogin = computed(() => route.name === 'login');
+const hideNav = computed(() => route.name === 'login' ||route.name === 'register');
 
 const irDashboard = () => {
   router.push({ name: 'dashboard' });
